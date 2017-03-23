@@ -4,7 +4,7 @@ LINKER := g++
 CXXFLAGS := -pipe -Wall -O2 -g -fPIC -std=c++11
 LIBS :=
 INCLUDE :=
-LINKFLAGS := -fPIC -shared
+LINKFLAGS := -fPIC -g -shared
 AR := ar
 JAVA_PATH = ${JAVA_HOME}
 OBJECTS = src/JString.o \
@@ -15,7 +15,7 @@ CORE_DEPS = src/java.h \
 	src/JObject.h
 
 DEP_INCPATH = -I$(JAVA_PATH)/include/ -I$(JAVA_PATH)/include/linux/
-DEP_LDFLAGS = -L$(JAVA_PATH)/jre/lib/amd64/server/ -L$(BRIDGE_PATH)/lib/
+DEP_LDFLAGS = -L$(JAVA_PATH)/jre/lib/amd64/server/
 DEP_LDLIBS = -ljvm -lbridge
 INCPATH = -I src/
 default:lib/libbridge_object.so lib/libbridge_object.a
