@@ -1,13 +1,15 @@
-//
-// Created by ÷Ï≥¨ on 2017/3/16.
-//
+/**
+ * Author: zhuchao
+ * Date: 16/03/2017
+ */
 
 #ifndef BRIDGE_OBJECT_H
 #define BRIDGE_OBJECT_H
 #include "bridge.h"
 #include "java.h"
+#include <jni.h>
 namespace java {
-    class JObject: bridge::BridgeObject {
+    class JObject: public bridge::BridgeObject, public _jobject {
     public:
         JObject();
         JObject(jobject object);
@@ -25,7 +27,7 @@ namespace java {
         virtual void wait();
         virtual void wait(long timeout);
         virtual void wait(long timeout, int nanos);
-    private:
+    protected:
         jmethodID _method_init;
         jmethodID _method_clone;
         jmethodID _method_equals;

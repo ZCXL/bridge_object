@@ -14,6 +14,9 @@ namespace java {
 
     protected:
         JString(std::string className);
+
+	private:
+		jmethodID _method_init;
     };
 }
 #endif //BRIDGE_STRING_H

@@ -10,6 +10,14 @@ namespace java {
     JObject::JObject(): JObject("Ljava/lang/Object;") {
         _method_init = _env->GetMethodID(_clazz, "<init>", "()V");
         _object = _env->NewObject(_clazz, _method_init);
+    }
+    JObject::JObject(jobject object): JObject("Ljava/lang/Object;") {
+        if (object != NULL) {
+            _object = object;
+        }
+    }
+
+    JObject::JObject(std::string className): BridgeObject(className) {
         _method_clone = NULL;
         _method_equals = NULL;
         _method_getClass = NULL;
@@ -20,14 +28,6 @@ namespace java {
 		_method_wait = NULL;
 		_method_wait1 = NULL;
 		_method_wait2 = NULL;
-    }
-    JObject::JObject(jobject object): JObject("Ljava/lang/Object;") {
-        if (object != NULL) {
-            _object = object;
-        }
-    }
-
-    JObject::JObject(std::string className): BridgeObject(className) {
     }
 
     JObject::~JObject() {
