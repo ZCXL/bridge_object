@@ -18,6 +18,7 @@ namespace java {
             JavaObject(std::string className);
         public:
             virtual JavaString toString();
+			friend std::ostream& operator << (std::ostream& out, JavaObject obj);
     };
 }
 #endif //BRIDGE_OBJECT_H

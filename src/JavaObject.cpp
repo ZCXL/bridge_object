@@ -18,6 +18,11 @@ namespace java {
 	}
 
 	JavaString JavaObject::toString() {
-		return JavaString("Bridge base class");
+		return "JavaObject";
+	}
+
+	std::ostream& operator << (std::ostream& out, JavaObject obj) {
+		out << obj.toString() << std::endl;
+		return out;
 	}
 }
