@@ -27,6 +27,7 @@ typedef jbyte				bridge_byte;
 typedef jlong				bridge_long;
 typedef jdouble				bridge_double;
 typedef jfloat				bridge_float;
+typedef jshort				bridge_short;
 typedef JavaString			bridge_string;
 typedef JavaIntArray		bridge_int_array;
 typedef JavaByteArray		bridge_byte_array;
